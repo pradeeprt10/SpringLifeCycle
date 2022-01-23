@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	      http://www.springframework.org/schema/beans/spring-beans.xsd
+	      http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd
+         http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<!-- 3 util is used for util class -->
+	<util:list list-class="java.util.LinkedList" id="List1">
+		<value>CTC</value>
+		<value>BBSR</value>
+		<value>RKL</value>
+		<value>Jajpur</value>
+	</util:list>
+	<util:map map-class="java.util.HashMap" id="map1">
+		<entry key="phone1" value="123456" />
+		<entry key="phone2" value="654321" />
+		<entry key="phone3" value="112233" />
+	</util:map>
+
+	<util:properties id="property1">
+		<prop key="driver"> "com.mysql.jdbc.driver"></prop>
+		<prop key="username"> "mysql"></prop>
+		<prop key="password">"pass"</prop>
+	</util:properties>
+
+	<context:annotation-config />
+	<bean class="StandarAloneUtil.UtilExample" name="test">
+		<property name="empAddress" ref="List1" />
+		<property name="empPhone" ref="map1" />
+		<property name="emproject" ref="property1" />
+	</bean>
+
+</beans>	
